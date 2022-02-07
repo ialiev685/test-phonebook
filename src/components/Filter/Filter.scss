@@ -1,0 +1,26 @@
+.filter-input {
+  display: block;
+  width: 190px;
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  border: 1px solid gray;
+  border-radius: 5px;
+
+  padding-left: 5px;
+
+  &__text {
+    width: 95px;
+
+    border: none;
+    outline: none;
+
+    font-size: 18px;
+    padding: 3px 5px;
+  }
+}
+
+.filter-input:focus-within {
+  border-color: #0056ff;
+  color: #0056ff;
+}

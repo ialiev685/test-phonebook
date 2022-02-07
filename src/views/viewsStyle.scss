@@ -1,0 +1,30 @@
+.title,
+.caption {
+  text-align: center;
+}
+
+.form-user {
+  min-width: 320px;
+  max-width: 425px;
+  margin: 30px auto;
+
+  &__input {
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  // &__field {
+  //   width: 320px;
+  // }
+
+  &__error {
+    margin-top: 10px;
+    // color: red;
+  }
+}
+
+.contacts {
+  min-width: 320px;
+  max-width: 425px;
+  margin: 0 auto;
+}
