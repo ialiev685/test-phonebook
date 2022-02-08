@@ -6,3 +6,5 @@ export const getIsFetchingCurrent = (state) =>
   state.authorization.isfetchingCurrentUser;
 
 export const getError = (state) => state.authorization.error;
+
+export const getToken = (state) => state.authorization.token;

@@ -10,4 +10,5 @@ export {
   getUserName,
   getIsFetchingCurrent,
   getError,
+  getToken,
 } from "./auth-selector";

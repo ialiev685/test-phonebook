@@ -6,6 +6,7 @@ export const fetchRegisterUser = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       const data = await API.fetchRegisterUser(user);
+      console.log("register", data);
       return data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -40,18 +41,19 @@ export const fetchLogOut = createAsyncThunk(
 export const fetchCurrentUser = createAsyncThunk(
   "user/refresh",
   async (_, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const localStorage = state.authorization.token;
-
-    if (localStorage === null) {
-      return thunkAPI.rejectWithValue();
-    }
+    // if (localStorage === null) {
+    //   return thunkAPI.rejectWithValue("Not authorized");
+    // }
 
     try {
+      console.log("запрос current");
+      const state = thunkAPI.getState();
+      const localStorage = state.authorization.token;
+      console.log("state token", state);
       const data = await API.fetchCurrentUser(localStorage);
       return data;
     } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

@@ -6,7 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import "./App.scss";
 import { Switch } from "react-router-dom";
 import { Navigation } from "./Navigation";
-import { fetchCurrentUser, getIsFetchingCurrent } from "redux/authorization";
+import {
+  fetchCurrentUser,
+  getIsFetchingCurrent,
+  getToken,
+} from "redux/authorization";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
 import { Spinner } from "./Spinner";
@@ -19,10 +23,11 @@ const ContactsView = lazy(() => import("../views/ContactsView"));
 const App = () => {
   const dispatch = useDispatch();
   const isFetchingCurrentUser = useSelector(getIsFetchingCurrent);
+  const isToken = useSelector(getToken);
 
   useEffect(() => {
-    dispatch(fetchCurrentUser());
-  }, [dispatch]);
+    if (isToken) dispatch(fetchCurrentUser());
+  }, [dispatch, isToken]);
 
   const murkup = (
     <>

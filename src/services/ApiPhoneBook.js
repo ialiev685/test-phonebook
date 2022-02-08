@@ -4,7 +4,7 @@ const axios = require("axios");
 //   baseURL: "https://connections-api.herokuapp.com",
 // });
 
-axios.defaults.baseURL = "https://connections-api.herokuapp.com";
+axios.defaults.baseURL = "http://localhost:3001";
 
 const token = {
   set(token) {
@@ -59,7 +59,7 @@ export const fetchCurrentUser = async (localStorage) => {
   token.set(localStorage);
 
   const { data } = await axios.get("/users/current");
-
+  console.log("current", data);
   return data;
 };
 

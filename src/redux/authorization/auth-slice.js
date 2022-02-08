@@ -43,15 +43,18 @@ const authSlice = createSlice({
       state.error = action.payload;
     },
     [fetchCurrentUser.pending](state) {
+      console.log("slice");
       state.isfetchingCurrentUser = true;
     },
 
     [fetchCurrentUser.fulfilled](state, action) {
+      console.log("slice", action.payload);
       state.user = action.payload;
       state.isfetchingCurrentUser = false;
       state.islogged = true;
     },
     [fetchCurrentUser.rejected](state, action) {
+      console.log("slice", action.payload);
       state.isfetchingCurrentUser = false;
       state.error = action.payload;
     },
