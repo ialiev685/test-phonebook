@@ -6,7 +6,7 @@ export const fetchRegisterUser = createAsyncThunk(
   async (user, { rejectWithValue }) => {
     try {
       const data = await API.fetchRegisterUser(user);
-      console.log("register", data);
+
       return data;
     } catch (error) {
       return rejectWithValue(error.message);

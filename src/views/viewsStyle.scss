@@ -4,6 +4,8 @@
 }
 
 .form-user {
+  position: relative;
+
   min-width: 320px;
   max-width: 425px;
   margin: 30px auto;
@@ -21,10 +23,21 @@
     margin-top: 10px;
     // color: red;
   }
+
+  &__button {
+    margin-top: 20px;
+  }
 }
 
 .contacts {
   min-width: 320px;
   max-width: 425px;
   margin: 0 auto;
+}
+
+#feedback {
+  position: absolute;
+
+  font-size: 14px;
+  color: rgb(255, 8, 8);
 }

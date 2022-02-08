@@ -1,10 +1,6 @@
 const axios = require("axios");
 
-// const API = axios.create({
-//   baseURL: "https://connections-api.herokuapp.com",
-// });
-
-axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.baseURL = "https://phonebook-server-ia.herokuapp.com/";
 
 const token = {
   set(token) {
