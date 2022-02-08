@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 // import "./ContactForm.scss";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -17,8 +17,8 @@ const ContactSchema = Yup.object().shape({
 });
 
 const ContactForm = () => {
-  const [name, setName] = useState("");
-  const [number, setNumber] = useState("");
+  // const [name, setName] = useState("");
+  // const [number, setNumber] = useState("");
 
   const items = useSelector(getFilterContacts);
   const dispatch = useDispatch();
@@ -42,29 +42,29 @@ const ContactForm = () => {
     return items.some(({ name }) => name.toLowerCase() === normalizedName);
   };
 
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
+  // const handleChange = (e) => {
+  //   const name = e.target.name;
+  //   const value = e.target.value;
 
-    switch (name) {
-      case "name":
-        setName(value);
-        break;
-      case "number":
-        setNumber(value);
-        break;
-      default:
-        return;
-    }
-  };
+  //   switch (name) {
+  //     case "name":
+  //       setName(value);
+  //       break;
+  //     case "number":
+  //       setNumber(value);
+  //       break;
+  //     default:
+  //       return;
+  //   }
+  // };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    addContact({ name, number });
-    setName("");
-    setNumber("");
-  };
+  //   addContact({ name, number });
+  //   setName("");
+  //   setNumber("");
+  // };
 
   return (
     <div className="form-contacts">
@@ -80,19 +80,6 @@ const ContactForm = () => {
         }}
       >
         {(props) => (
-          // <form onSubmit={props.handleSubmit}>
-          //   <input
-          //     type="text"
-          //     onChange={props.handleChange}
-          //     onBlur={props.handleBlur}
-          //     value={props.values.name}
-          //     name="name"
-          //   />
-
-          // {props.errors.name && <div id="feedback">{props.errors.name}</div>}
-          // <button type="submit">Submit</button>
-          // </form>
-
           <Form onSubmit={props.handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicText">
               <Form.Label className="form-contacts__input">Name:</Form.Label>
