@@ -19,19 +19,19 @@ const token = {
 
 export const fetchContacts = async (localStorage) => {
   token.set(localStorage);
-  return await axios.get("/contacts");
+  return await axios.get("/api/contacts");
 };
 
 export const fetchCreateContact = async (item) => {
-  return await axios.post("/contacts", item);
+  return await axios.post("/api/contacts", item);
 };
 
 export const fetchDeleteContact = async (id) => {
-  return await axios.delete(`/contacts/${id}`);
+  return await axios.delete(`/api/contacts/${id}`);
 };
 
 export const fetchUpdateContact = async ({ id, name, number }) => {
-  return await axios.patch(`/contacts/${id}`, { name, number });
+  return await axios.patch(`/api/contacts/${id}`, { name, number });
 };
 
 //запросы авторизации
@@ -59,7 +59,7 @@ export const fetchCurrentUser = async (localStorage) => {
   token.set(localStorage);
 
   const { data } = await axios.get("/users/current");
-  console.log("current", data);
+
   return data;
 };
 

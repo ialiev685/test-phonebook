@@ -7,9 +7,6 @@ export const fetchContacts = createAsyncThunk(
     const state = thunkAPI.getState();
     const localStorage = state.authorization.token;
 
-    if (localStorage === null) {
-      return thunkAPI.rejectWithValue("Have not token");
-    }
     try {
       const contacts = await API.fetchContacts(localStorage);
 
@@ -38,7 +35,9 @@ export const fetchDeleteContact = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const requestDelete = await API.fetchDeleteContact(id);
-      if (requestDelete.statusText === "OK") {
+
+      if (requestDelete.status === 200) {
+        console.log(requestDelete);
         return id;
       }
     } catch (err) {
@@ -52,7 +51,7 @@ export const fetchUpdateContact = createAsyncThunk(
   async (item, { rejectWithValue }) => {
     try {
       const contacts = await API.fetchUpdateContact(item);
-
+      console.log("update", contacts);
       return contacts.data;
     } catch (err) {
       return rejectWithValue(err.message);

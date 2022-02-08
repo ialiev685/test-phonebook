@@ -1,7 +1,7 @@
 .user-menu {
   display: flex;
-  width: 200px;
-  justify-content: space-between;
+  // width: 200px;
+  // justify-content: space-between;
   align-items: center;
 
   &__box {
@@ -12,6 +12,8 @@
     border-radius: 50%;
 
     overflow: hidden;
+
+    margin-right: 10px;
   }
   &__avatar {
     display: block;
@@ -23,5 +25,7 @@
 
   &__text {
     color: white;
+
+    margin-right: 10px;
   }
 }

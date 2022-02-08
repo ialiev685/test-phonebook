@@ -10,6 +10,7 @@ const ContactsList = ({ setShowModal }) => {
   const items = useSelector(getFilterContacts);
   const loading = useSelector(getIsLoader);
   const error = useSelector(getError);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,12 +33,12 @@ const ContactsList = ({ setShowModal }) => {
         </Alert>
       )}
       <ListGroup className="contacts-wrapper__contacts-list">
-        {items.map(({ id, name, number }) => (
+        {items.map(({ _id, name, number }) => (
           <ContactItem
-            key={id}
+            key={_id}
             name={name}
             number={number}
-            id={id}
+            id={_id}
             setShowModal={setShowModal}
           />
         ))}

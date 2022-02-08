@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { getFilterContacts, fetchCreateContact } from "redux/phonebook";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -17,9 +17,11 @@ const ContactForm = () => {
       alert(`${newItem.name} уже есть в контактах.`);
       return false;
     }
+    //если id не создает сервер
+    // const contact = { id: uuidv4(), ...newItem };
 
-    const contact = { id: uuidv4(), ...newItem };
-    dispatch(fetchCreateContact(contact));
+    // dispatch(fetchCreateContact(contact));
+    dispatch(fetchCreateContact(newItem));
   };
 
   const checkDoubleName = (newContact) => {
